@@ -37,7 +37,7 @@ export function toBuffer(
   }
   if (encoding === "binary" || encoding === "latin1") {
     // Use chunked approach for large strings to avoid performance issues
-    const chunkSize = 8192; // 8KB chunks
+    const chunkSize = 65536; // 64KB chunks
     if (content.length <= chunkSize) {
       return Uint8Array.from(content, (c) => c.charCodeAt(0));
     }
